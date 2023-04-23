@@ -29,8 +29,7 @@ namespace _153504_SIVY.Persistense.Repository
 
         public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
-            _context.Remove(entity);
-            await _context.SaveChangesAsync();
+            await Task.Run(() => _context.Remove(entity));
         }
 
         public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, CancellationToken cancellationToken = default)
@@ -38,9 +37,17 @@ namespace _153504_SIVY.Persistense.Repository
             return await _entities.FirstOrDefaultAsync(filter, cancellationToken);
         }
 
-        public Task<T> GetByIdAsync(int id, CancellationToken cencellationToken = default, params Expression<Func<T, object>>[] includesProperties)
+        public async Task<T> GetByIdAsync(int id, CancellationToken cencellationToken = default, params Expression<Func<T, object>>[] includesProperties)
         {
-            throw new NotImplementedException();
+            IQueryable<T>? query = _entities.AsQueryable();
+            if (includesProperties.Any())
+            {
+                foreach(Expression<Func<T, object>>? included in includesProperties)
+                {
+                    query = query.Include(included);
+                }
+            }
+            return await query.FirstAsync((itm) => itm.Id == id);
         }
 
         public async Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default)

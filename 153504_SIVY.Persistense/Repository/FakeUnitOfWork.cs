@@ -21,23 +21,23 @@ namespace _153504_SIVY.Persistense.Repository
             _songRepository = new Lazy<IRepository<Song>>(() => new FakeSongRepository());
         }
 
-        public IRepository<Song> SongRepository => throw new NotImplementedException();
+        public IRepository<Song> SongRepository => _songRepository.Value;
 
-        public IRepository<Performer> PerformerRepository => throw new NotImplementedException();
+        public IRepository<Performer> PerformerRepository => _performerRepository.Value;
 
-        public Task CreateDatabaseAsync()
+        public async Task CreateDatabaseAsync()
         {
-            throw new NotImplementedException();
+            await _context.Database.EnsureCreatedAsync();
         }
 
-        public Task RemoveDatabaseAsync()
+        public async Task RemoveDatabaseAsync()
         {
-            throw new NotImplementedException();
+            await _context.Database.EnsureDeletedAsync();
         }
 
-        public Task SaveAllAsync()
+        public async Task SaveAllAsync()
         {
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
         }
     }
 }
