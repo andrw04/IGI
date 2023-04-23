@@ -17,8 +17,10 @@ namespace _153504_SIVY.Persistense.Repository
         {
             _performers = new List<Performer>()
             { 
-                new Performer() { Id = 0, Name = "Performer1", Nationality = "BY" },
-                new Performer(){ Id = 1, Name = "Performer2", Nationality = "RU"}
+                new Performer() { Id = 0, Name = "Performer1", Nationality = "BY",
+                    DebuteDate = new DateOnly(2004, 7, 1) },
+                new Performer(){ Id = 1, Name = "Performer2", Nationality = "RU",
+                    DebuteDate = new DateOnly(2010, 5, 27)}
             };
         }
 

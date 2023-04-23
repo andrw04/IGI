@@ -11,12 +11,10 @@ namespace _153504_SIVY.Persistense.Repository
 {
     public class FakeUnitOfWork : IUnitOfWork
     {
-        private readonly AppDbContext _context;
         private readonly Lazy<IRepository<Performer>> _performerRepository;
         private readonly Lazy<IRepository<Song>> _songRepository;
-        public FakeUnitOfWork(AppDbContext context)
+        public FakeUnitOfWork()
         {
-            _context = context;
             _performerRepository = new Lazy<IRepository<Performer>>(() => new FakePerformerRepository());
             _songRepository = new Lazy<IRepository<Song>>(() => new FakeSongRepository());
         }
@@ -27,17 +25,17 @@ namespace _153504_SIVY.Persistense.Repository
 
         public async Task CreateDatabaseAsync()
         {
-            await _context.Database.EnsureCreatedAsync();
+            throw new NotImplementedException();
         }
 
         public async Task RemoveDatabaseAsync()
         {
-            await _context.Database.EnsureDeletedAsync();
+            throw new NotImplementedException();
         }
 
         public async Task SaveAllAsync()
         {
-            await _context.SaveChangesAsync();
+            throw new NotImplementedException();
         }
     }
 }
