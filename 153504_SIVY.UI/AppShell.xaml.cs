@@ -1,9 +1,10 @@
-﻿namespace _153504_SIVY.UI;
-
-public partial class AppShell : Shell
+﻿namespace _153504_SIVY.UI
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
 }

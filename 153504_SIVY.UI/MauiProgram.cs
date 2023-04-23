@@ -1,18 +1,45 @@
-﻿namespace _153504_SIVY.UI;
+﻿using _153504_SIVY.Application.Abstractions;
+using _153504_SIVY.Application.Services;
+using _153504_SIVY.Domain.Abstractions;
+using _153504_SIVY.Persistense.Repository;
+using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
-public static class MauiProgram
+namespace _153504_SIVY.UI
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+            SetupServices(builder.Services);
+            return builder.Build();
+        }
 
-		return builder.Build();
-	}
+        private static void SetupServices(IServiceCollection services)
+        {
+
+            // Services
+            services.AddSingleton<IUnitOfWork, FakeUnitOfWork>();
+            services.AddSingleton<IPerformerService, PerformerService>();
+            services.AddSingleton<ISongService, SongService>();
+
+            // Pages
+
+
+            // ViewModels
+        }
+
+    }
 }
