@@ -3,8 +3,14 @@
   <PropertyGroup>
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
     <ActiveDebugFramework>net7.0-windows10.0.19041.0</ActiveDebugFramework>
+    <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <ItemGroup>
+    <MauiXaml Update="Pages\Performers.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
 </Project>

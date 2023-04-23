@@ -1,4 +1,4 @@
-﻿using _153504_SIVY.Application.Abstractions;
+﻿using _153504_SIVY.MyApplication.Abstractions;
 using _153504_SIVY.Domain.Abstractions;
 using _153504_SIVY.Domain.Entities;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _153504_SIVY.Application.Services
+namespace _153504_SIVY.MyApplication.Services
 {
     public class SongService : ISongService
     {

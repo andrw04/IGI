@@ -1,5 +1,5 @@
-﻿using _153504_SIVY.Application.Abstractions;
-using _153504_SIVY.Application.Services;
+﻿using _153504_SIVY.MyApplication.Abstractions;
+using _153504_SIVY.MyApplication.Services;
 using _153504_SIVY.Domain.Abstractions;
 using _153504_SIVY.Persistense.Repository;
 using CommunityToolkit.Maui;

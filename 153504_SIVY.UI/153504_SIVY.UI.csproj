@@ -54,9 +54,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\153504_SIVY.Application\153504_SIVY.Application.csproj" />
+	  <ProjectReference Include="..\153504_SIVY.Application\153504_SIVY.MyApplication.csproj" />
 	  <ProjectReference Include="..\153504_SIVY.Domain\153504_SIVY.Domain.csproj" />
 	  <ProjectReference Include="..\153504_SIVY.Persistense\153504_SIVY.Persistense.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Performers.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

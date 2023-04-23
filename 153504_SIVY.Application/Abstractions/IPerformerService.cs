@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _153504_SIVY.Application.Abstractions
+namespace _153504_SIVY.MyApplication.Abstractions
 {
     public interface IPerformerService : IBaseService<Performer>
     {

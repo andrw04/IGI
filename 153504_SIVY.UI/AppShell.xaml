@@ -4,11 +4,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:_153504_SIVY.UI"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:pages="clr-namespace:_153504_SIVY.UI.Pages">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+        Title="Performers list"
+        ContentTemplate="{DataTemplate pages:Performers}"
+        Route="Performers"/>
 
 </Shell>
