@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using _153504_SIVY.Domain.Entities;
 using _153504_SIVY.MyApplication.Abstractions;
+using _153504_SIVY.UI.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -22,6 +23,9 @@ namespace _153504_SIVY.UI.ViewModels
 
         [RelayCommand]
         async void UpdateSongList() => await GetSongs();
+
+        [RelayCommand]
+        async void ShowDetails(Song song) => await GotoDetailsPage(song);
         public PerformersViewModel(IPerformerService performerService, ISongService songService)
         {
             _performerService = performerService;
@@ -52,6 +56,15 @@ namespace _153504_SIVY.UI.ViewModels
                     Songs.Add(song);
                 }
             });
+        }
+
+        public async Task GotoDetailsPage(Song song)
+        {
+            IDictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"Song", song }
+            };
+            await Shell.Current.GoToAsync(nameof(SongDetails), parameters);
         }
     }
 }

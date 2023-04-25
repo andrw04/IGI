@@ -43,6 +43,14 @@
                         <Frame Margin="10,5,10,5"
                                BackgroundColor="{Binding Position, Converter={converter:RateToPositionValueConverter}}">
                             <Label Text="{Binding Name}"/>
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding
+                                    Source={RelativeSource AncestorType={x:Type models:PerformersViewModel}},
+                                    Path=ShowDetailsCommand}"
+                                    CommandParameter="{Binding}"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
