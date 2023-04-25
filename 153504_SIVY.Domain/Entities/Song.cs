@@ -17,6 +17,9 @@ namespace _153504_SIVY.Domain.Entities
         // Длительность песни в секундах
         public int Duration { get; set; }
 
+        // Место в чарте (обязательное свойство)
+        public int Position { get; set; }
+
         // Автор песни (внешний ключ)
         public long PerformerId { get; set; }
 

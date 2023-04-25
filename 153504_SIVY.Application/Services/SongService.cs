@@ -38,6 +38,12 @@ namespace _153504_SIVY.MyApplication.Services
             return await _unitOfWork.SongRepository.GetByIdAsync(id);
         }
 
+        public async Task<IEnumerable<Song>> GetPerformerSongs(long id)
+        {
+            var songs = await _unitOfWork.SongRepository.ListAllAsync();
+            return songs.Where(item => item.PerformerId == id);
+        }
+
         public async Task UpdateAsync(Song item)
         {
             await _unitOfWork.SongRepository.UpdateAsync(item);

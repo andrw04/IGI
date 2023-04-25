@@ -2,8 +2,10 @@
 using _153504_SIVY.MyApplication.Services;
 using _153504_SIVY.Domain.Abstractions;
 using _153504_SIVY.Persistense.Repository;
+using _153504_SIVY.UI.ViewModels;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using _153504_SIVY.UI.Pages;
 
 namespace _153504_SIVY.UI
 {
@@ -36,9 +38,10 @@ namespace _153504_SIVY.UI
             services.AddSingleton<ISongService, SongService>();
 
             // Pages
-
+            services.AddSingleton<Performers>();
 
             // ViewModels
+            services.AddSingleton<PerformersViewModel>();
         }
 
     }

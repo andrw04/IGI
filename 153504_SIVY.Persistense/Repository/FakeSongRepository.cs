@@ -16,11 +16,18 @@ namespace _153504_SIVY.Persistense.Repository
         {
             Random rand = new Random();
             int k = 1;
-            for(int i = 1; i <= 2; i++)
+            for(int i = 0; i < 2; i++)
             {
                 for(int j = 0; j < 10; j++)
                 {
-                    _songs.Add(new Song() { Id = k, Name = $"Song{k++}", Duration = 10, Genre = "jazz", Language = "RU" });
+                    _songs.Add(new Song() { Id = k,
+                        Name = $"Song{k++}",
+                        Duration = rand.Next(180, 240),
+                        Genre = "Rock",
+                        Language = "RU",
+                        Position = rand.Next(1,20),
+                        PerformerId = i
+                    });
                 }
             }
         }
@@ -45,9 +52,9 @@ namespace _153504_SIVY.Persistense.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IReadOnlyList<Song>> ListAllAsync(CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyList<Song>> ListAllAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return _songs.ToList();
         }
 
         public async Task<IReadOnlyList<Song>> ListAsync(Expression<Func<Song, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<Song, object>>[]? includesProperties)
