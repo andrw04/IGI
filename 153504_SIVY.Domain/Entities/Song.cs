@@ -14,8 +14,8 @@ namespace _153504_SIVY.Domain.Entities
         // Язык
         public string Language { get; set; }
 
-        // Длительность песни в секундах
-        public int Duration { get; set; }
+        // Длительность песни
+        public double Duration { get; set; }
 
         // Место в чарте (обязательное свойство)
         public int Position { get; set; }

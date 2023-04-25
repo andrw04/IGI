@@ -12,7 +12,7 @@ namespace _153504_SIVY.Domain.Entities
         public string Nationality { get; set; }
 
         // Дата начала карьеры
-        public DateOnly DebuteDate { get; set; }
+        public int DebuteDate { get; set; }
 
         // Песни исполнителя
         public List<Song> Songs { get; set; }

@@ -16,7 +16,8 @@
     <ScrollView>
         <VerticalStackLayout>
             <Picker x:Name="picker" FontSize="Title" FontAttributes="Bold"
-                    ItemsSource="{Binding Performers}" SelectedItem="{Binding SelectedPerformer}" ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding Performers}" SelectedItem="{Binding SelectedPerformer}"
+                    ItemDisplayBinding="{Binding Name}"
                     HorizontalOptions="Center" Margin="10,20,10,10">
                 
                 <Picker.Behaviors>
@@ -35,10 +36,12 @@
                     <Label Text="{Binding SelectedPerformer.DebuteDate}" Grid.Row="2" Grid.Column="1"/>
                 </Grid>
             </Frame>
+            
             <CollectionView ItemsSource="{Binding Songs}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="entity:Song">
-                        <Frame Margin="10,5,10,5" BackgroundColor="{Binding Position, Converter={converter:RateToPositionValueConverter}}">
+                        <Frame Margin="10,5,10,5"
+                               BackgroundColor="{Binding Position, Converter={converter:RateToPositionValueConverter}}">
                             <Label Text="{Binding Name}"/>
                         </Frame>
                     </DataTemplate>
