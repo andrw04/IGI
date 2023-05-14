@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_153504_SIVY.UI.Pages.AddNewObjectPage"
+             Title="AddNewObjectPage">
+
+    <Border Margin="300,75,300,75" Padding="10">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="15,15,15,15"/>
+        </Border.StrokeShape>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*"
+                  VerticalOptions="Center" HorizontalOptions="Center"
+                  ColumnSpacing="50" RowSpacing="20" Margin="20,20,20,20">
+            <Label Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" Text="Song Name"/>
+            <Label Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" Text="Genre"/>
+            <Label Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" Text="Language"/>
+            <Label Grid.Column="0" Grid.Row="3" VerticalTextAlignment="Center" Text="Duration"/>
+
+            <Entry Grid.Column="1" Grid.Row="0" WidthRequest="200" VerticalOptions="Center"
+                   Text="{Binding Name}"/>
+            <Entry Grid.Column="1" Grid.Row="1" WidthRequest="200" VerticalOptions="Center"
+                   Text="{Binding Genre}"/>
+            <Entry Grid.Column="1" Grid.Row="2" WidthRequest="200" VerticalOptions="Center"
+                   Text="{Binding Language}"/>
+            <Entry Grid.Column="1" Grid.Row="3" WidthRequest="200" VerticalOptions="Center"
+                   Text="{Binding Duration}"/>
+
+            <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+                    VerticalOptions="Center" HorizontalOptions="Center"
+                    Text="Add" Command="{Binding AddSongCommand}"/>
+        </Grid>
+    </Border>
+</ContentPage>

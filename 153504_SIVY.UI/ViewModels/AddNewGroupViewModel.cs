@@ -2,6 +2,7 @@
 using _153504_SIVY.Domain.Entities;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using _153504_SIVY.UI.Pages;
 
 namespace _153504_SIVY.UI.ViewModels
 {
@@ -43,6 +44,7 @@ namespace _153504_SIVY.UI.ViewModels
                 await _performerService.AddAsync(performer);
 
                 MessagingCenter.Send(this, "update");
+                await Shell.Current.GoToAsync("..");
             }
         }
     }

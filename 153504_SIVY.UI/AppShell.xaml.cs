@@ -9,6 +9,7 @@ namespace _153504_SIVY.UI
             InitializeComponent();
             Routing.RegisterRoute(nameof(SongDetails), typeof(SongDetails));
             Routing.RegisterRoute(nameof(AddNewGroupPage), typeof(AddNewGroupPage));
+            Routing.RegisterRoute(nameof(AddNewObjectPage), typeof(AddNewObjectPage));
         }
     }
 }

@@ -117,18 +117,20 @@ namespace _153504_SIVY.UI
             services.AddSingleton<Performers>();
             services.AddTransient<SongDetails>();
             services.AddTransient<AddNewGroupPage>();
+            services.AddTransient<AddNewObjectPage>();
 
             // ViewModels
             services.AddSingleton<PerformersViewModel>();
             services.AddTransient<SongDetailsViewModel>();
             services.AddTransient<AddNewGroupViewModel>();
+            services.AddTransient<AddNewObjectViewModel>();
         }
 
         private static void AddDbContext(MauiAppBuilder builder)
         {
             var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 
-            string dataDirectory = String.Empty;
+            string dataDirectory = string.Empty;
 
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseMySql(connStr, new MySqlServerVersion(new Version(8, 0, 30))).

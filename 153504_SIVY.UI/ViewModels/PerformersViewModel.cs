@@ -30,6 +30,9 @@ namespace _153504_SIVY.UI.ViewModels
         [RelayCommand]
         async void NewGroup() => await GotoAddNewGroupPage();
 
+        [RelayCommand]
+        async void NewObject() => await GotoAddNewObjectPage();
+
         public PerformersViewModel(IPerformerService performerService, ISongService songService)
         {
             _performerService = performerService;
@@ -38,6 +41,11 @@ namespace _153504_SIVY.UI.ViewModels
             MessagingCenter.Subscribe<AddNewGroupViewModel>(this, "update", (sender) =>
             {
                 UpdatePerformerList();
+            });
+
+            MessagingCenter.Subscribe<AddNewObjectViewModel>(this, "update", (sender) =>
+            {
+                UpdateSongList();
             });
         }
 
@@ -82,6 +90,18 @@ namespace _153504_SIVY.UI.ViewModels
         public async Task GotoAddNewGroupPage()
         {
             await Shell.Current.GoToAsync(nameof(AddNewGroupPage));
+        }
+
+        public async Task GotoAddNewObjectPage()
+        {
+            if (SelectedPerformer != null)
+            {
+                IDictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"Performer", SelectedPerformer }
+            };
+                await Shell.Current.GoToAsync(nameof(AddNewObjectPage), parameters);
+            }
         }
     }
 }
