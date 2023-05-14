@@ -19,6 +19,7 @@ namespace _153504_SIVY.MyApplication.Services
         public async Task AddAsync(Performer item)
         {
             await _unitOfWork.PerformerRepository.AddAsync(item);
+            await _unitOfWork.SaveAllAsync();
         }
 
         public async Task DeleteAsync(int id)

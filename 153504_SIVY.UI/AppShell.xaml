@@ -10,10 +10,11 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
+    
     <ShellContent
         Title="Performers list"
         ContentTemplate="{DataTemplate pages:Performers}"
         Route="Performers"/>
+
 
 </Shell>

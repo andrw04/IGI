@@ -4,7 +4,7 @@
              x:Class="_153504_SIVY.UI.Pages.SongDetails"
              Title="SongDetails">
     <ScrollView>
-        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*" Margin="10,10,10,10" ColumnSpacing="20" RowSpacing="10">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*" Margin="10,10,10,10" ColumnSpacing="20" RowSpacing="0">
             <Label Text="Song Name" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
             <Label Text="Performer" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"

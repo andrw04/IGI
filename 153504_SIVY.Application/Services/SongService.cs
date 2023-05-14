@@ -18,8 +18,8 @@ namespace _153504_SIVY.MyApplication.Services
         }
         public async Task AddAsync(Song item)
         {
-            await _unitOfWork.CreateDatabaseAsync();
             await _unitOfWork.SongRepository.AddAsync(item);
+            await _unitOfWork.SaveAllAsync();
         }
 
         public async Task DeleteAsync(int id)

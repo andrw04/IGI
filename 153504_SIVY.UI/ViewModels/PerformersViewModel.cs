@@ -26,10 +26,19 @@ namespace _153504_SIVY.UI.ViewModels
 
         [RelayCommand]
         async void ShowDetails(Song song) => await GotoDetailsPage(song);
+
+        [RelayCommand]
+        async void NewGroup() => await GotoAddNewGroupPage();
+
         public PerformersViewModel(IPerformerService performerService, ISongService songService)
         {
             _performerService = performerService;
             _songService = songService;
+
+            MessagingCenter.Subscribe<AddNewGroupViewModel>(this, "update", (sender) =>
+            {
+                UpdatePerformerList();
+            });
         }
 
         public async Task GetPerformers()
@@ -47,15 +56,18 @@ namespace _153504_SIVY.UI.ViewModels
 
         public async Task GetSongs()
         {
-            var songs = await _songService.GetPerformerSongs(SelectedPerformer.Id);
-            await MainThread.InvokeOnMainThreadAsync(() =>
+            if (SelectedPerformer != null)
             {
-                Songs.Clear();
-                foreach(var song in songs)
+                var songs = await _songService.GetPerformerSongs(SelectedPerformer.Id);
+                await MainThread.InvokeOnMainThreadAsync(() =>
                 {
-                    Songs.Add(song);
-                }
-            });
+                    Songs.Clear();
+                    foreach (var song in songs)
+                    {
+                        Songs.Add(song);
+                    }
+                });
+            }
         }
 
         public async Task GotoDetailsPage(Song song)
@@ -65,6 +77,11 @@ namespace _153504_SIVY.UI.ViewModels
                 {"Song", song }
             };
             await Shell.Current.GoToAsync(nameof(SongDetails), parameters);
+        }
+
+        public async Task GotoAddNewGroupPage()
+        {
+            await Shell.Current.GoToAsync(nameof(AddNewGroupPage));
         }
     }
 }

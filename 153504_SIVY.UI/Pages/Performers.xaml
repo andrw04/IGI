@@ -12,9 +12,26 @@
         <toolkit:EventToCommandBehavior EventName="Loaded"
                                         Command="{Binding UpdatePerformerListCommand}"/>
     </ContentPage.Behaviors>
-    
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Action">
+            <MenuFlyoutItem Text="New group" Command="{Binding
+                                    Source={RelativeSource AncestorType={x:Type models:PerformersViewModel}},
+                                    Path=NewGroupCommand}" />
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutItem Text="New object to current group" Command="{Binding NewGroupCommand}"
+                            />
+
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
     <ScrollView>
         <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,*,*" Margin="200,10,200,10">
+                <Button Text="New group" Grid.Column="0" Command="{Binding NewGroupCommand}"/>
+                <Button Text="New object to current group" Grid.Column="1"/>
+            </Grid>
+
             <Picker x:Name="picker" FontSize="Title" FontAttributes="Bold"
                     ItemsSource="{Binding Performers}" SelectedItem="{Binding SelectedPerformer}"
                     ItemDisplayBinding="{Binding Name}"
@@ -23,7 +40,10 @@
                 <Picker.Behaviors>
                     <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged"
                                                 Command="{Binding UpdateSongListCommand}"/>
+                    <toolkit:EventToCommandBehavior EventName="Loaded"
+                                                    Command="{Binding UpdatePerformerList}"/>
                 </Picker.Behaviors>
+                
             </Picker>
 
             <Frame>
