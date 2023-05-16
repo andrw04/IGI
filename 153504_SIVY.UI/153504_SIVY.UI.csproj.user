@@ -17,6 +17,9 @@
     <MauiXaml Update="Pages\AddNewObjectPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\EditObjectPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\Performers.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -38,15 +38,11 @@ namespace _153504_SIVY.UI.ViewModels
             _performerService = performerService;
             _songService = songService;
 
-            MessagingCenter.Subscribe<AddNewGroupViewModel>(this, "update", (sender) =>
-            {
-                UpdatePerformerList();
-            });
+            MessagingCenter.Subscribe<AddNewGroupViewModel>(this, "update", (sender) => UpdatePerformerList());
 
-            MessagingCenter.Subscribe<AddNewObjectViewModel>(this, "update", (sender) =>
-            {
-                UpdateSongList();
-            });
+            MessagingCenter.Subscribe<AddNewObjectViewModel>(this, "update", (sender) => UpdateSongList());
+
+            MessagingCenter.Subscribe<EditObjectViewModel>(this, "update", (sender) => UpdateSongList());
         }
 
         public async Task GetPerformers()

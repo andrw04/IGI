@@ -2,31 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="_153504_SIVY.UI.Pages.SongDetails"
+             xmlns:converter="clr-namespace:_153504_SIVY.UI.ValueConverters"
              Title="SongDetails">
     <ScrollView>
-        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*" Margin="10,10,10,10" ColumnSpacing="20" RowSpacing="0">
-            <Label Text="Song Name" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+        <Border WidthRequest="500" Margin="0,20,0,20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15,15,15,15" Margin="100,100,100,100"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout VerticalOptions="Center">
+                <Border HorizontalOptions="Center" Margin="0,10,0,10">
+                    <Image Source="{Binding Song.Id, Converter={converter:IdToImageValueConverter}}"
+                       WidthRequest="200" HeightRequest="200"/>
+                </Border>
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*,*" Margin="10,10,10,10" ColumnSpacing="20" RowSpacing="10"
+                  HeightRequest="300">
+                    <Label Text="Song Name" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="0" Grid.Column="0" HorizontalOptions="End"/>
-            <Label Text="Performer" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+                    <Label Text="Performer" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
-            <Label Text="Genre" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+                    <Label Text="Genre" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="2" Grid.Column="0" HorizontalOptions="End"/>
-            <Label Text="Language" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+                    <Label Text="Language" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="3" Grid.Column="0" HorizontalOptions="End"/>
-            <Label Text="Duration" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+                    <Label Text="Duration" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
                    Grid.Row="4" Grid.Column="0" HorizontalOptions="End"/>
-           
-            
-            <Label Text="{Binding Song.Name}" FontSize="Title" FontAttributes="Bold"
+                    <Label Text="Position" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center"
+                   Grid.Row="5" Grid.Column="0" HorizontalOptions="End"/>
+
+
+                    <Label Text="{Binding Song.Name}" FontSize="Title" FontAttributes="Bold"
                    Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
-            <Label Text="{Binding Song.Performer.Name}" FontSize="Title" FontAttributes="Bold"
+                    <Label Text="{Binding Song.Performer.Name}" FontSize="Title" FontAttributes="Bold"
                    Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
-            <Label Text="{Binding Song.Genre}" FontSize="Title" FontAttributes="Bold"
+                    <Label Text="{Binding Song.Genre}" FontSize="Title" FontAttributes="Bold"
                    Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
-            <Label Text="{Binding Song.Language}" FontSize="Title" FontAttributes="Bold"
+                    <Label Text="{Binding Song.Language}" FontSize="Title" FontAttributes="Bold"
                    Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
-            <Label Text="{Binding Song.Duration}" FontSize="Title" FontAttributes="Bold"
+                    <Label Text="{Binding Song.Duration}" FontSize="Title" FontAttributes="Bold"
                    Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
-        </Grid>
+                    <Label Text="{Binding Song.Position}" FontSize="Title" FontAttributes="Bold"
+                           Grid.Row="5" Grid.Column="1" HorizontalOptions="Start" VerticalTextAlignment="Center"/>
+                </Grid>
+                <Button Text="Edit" HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,10"
+                        Command="{Binding EditCommand}"/>
+            </VerticalStackLayout>
+        </Border>
     </ScrollView>
 </ContentPage>

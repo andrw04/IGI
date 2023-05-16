@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _153504_SIVY.UI.ValueConverters
 {
-    internal class RateToPositionValueConverter : IValueConverter
+    public class RateToPositionValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

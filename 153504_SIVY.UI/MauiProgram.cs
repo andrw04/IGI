@@ -118,12 +118,14 @@ namespace _153504_SIVY.UI
             services.AddTransient<SongDetails>();
             services.AddTransient<AddNewGroupPage>();
             services.AddTransient<AddNewObjectPage>();
+            services.AddTransient<EditObjectPage>();
 
             // ViewModels
             services.AddSingleton<PerformersViewModel>();
             services.AddTransient<SongDetailsViewModel>();
             services.AddTransient<AddNewGroupViewModel>();
             services.AddTransient<AddNewObjectViewModel>();
+            services.AddTransient<EditObjectViewModel>();
         }
 
         private static void AddDbContext(MauiAppBuilder builder)

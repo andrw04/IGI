@@ -9,12 +9,14 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        Icon="home_img.png"/>
     
     <ShellContent
         Title="Performers list"
         ContentTemplate="{DataTemplate pages:Performers}"
-        Route="Performers"/>
+        Route="Performers"
+        Icon="performer_img.png"/>
 
 
 </Shell>
