@@ -50,8 +50,17 @@
                     <DataTemplate x:DataType="entity:Song">
                         <Frame Margin="10,5,10,5"
                                BackgroundColor="{Binding Position, Converter={converter:RateToPositionValueConverter}}">
-                            <Label Text="{Binding Name}"/>
-
+                            <Grid ColumnDefinitions="*,12*" ColumnSpacing="20">
+                                <Border Grid.Column="0"
+                                        StrokeShape="RoundRectangle 80,80,80,80"
+                                        WidthRequest="75"
+                                        HeightRequest="75">
+                                    <Image Source="{Binding Id, Converter={converter:IdToImageValueConverter}}"/>
+                                </Border>
+                                <Label Text="{Binding Name}" Grid.Column="1"
+                                       FontAttributes="Bold" FontSize="Title"
+                                       VerticalOptions="Center"/>
+                            </Grid>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding

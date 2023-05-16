@@ -90,6 +90,8 @@ namespace _153504_SIVY.UI.ViewModels
                 await stream.CopyToAsync(outputStream);
             }
 
+            MessagingCenter.Send(this, "update");
+
             // await Shell.Current.GoToAsync("../..");
         }
     }
